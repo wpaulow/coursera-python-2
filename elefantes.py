@@ -11,19 +11,22 @@ def incomodam(n: int) -> str:
 
         
 def elefantes(n: int) -> str:
-    
     um = "Um elefante incomoda muita gente\n"
     eles = " elefantes "
     m_mais = "muito mais\n"
     texto = ""
 
     if n <= 0:
-        return texto
-    
+        return ""
+
     if n == 1:
         return um + texto
-    else:
+    
+    if n == 2:
         texto += str(n) + eles + incomodam(n) + m_mais
-        incomodo = str(n) + " elefantes incomodam muita gente\n"
-        return elefantes(n-1) + texto + incomodo
+        return um + texto
+    else:
+        incomodo = str(n-1) + " elefantes incomodam muita gente\n"
+        texto += incomodo + str(n) + eles + incomodam(n) + m_mais
+        return elefantes(n-1) + texto
     
